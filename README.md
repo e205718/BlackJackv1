@@ -1,17 +1,18 @@
 # ETHブラックジャックの入れ方
 本アプリはReact環境で動作し、metamaskが導入済みである必要があります。
 
-## Reactの環境を用意する。
+## 1,Reactの環境を用意する。
 Node.jsを使用し、React環境を準備する
 `create-react-app`
 
-## ファイルを書き換える
+## 2,ファイルを書き換える
+git cloneでソースコードを持ってくる。
 `git clone https://github.com/e205718/BlackJackv1.git`
-public と　srcファイルを置き換える。
+1で作ったpublicとsrcを、gitcloneで持ってきたpublic と　srcファイルに置き換える。
 
-## moduleのインストール
+## 3,moduleのインストール
 `npm install react-router-dom`
 `npm install web3`
 
-## 起動
+## 4,起動
 `npm start`
