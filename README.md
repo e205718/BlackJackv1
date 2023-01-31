@@ -8,6 +8,7 @@ Node.jsを使用し、React環境を準備する
 ## 2,ファイルを書き換える
 git cloneでソースコードを持ってくる。
 `git clone https://github.com/e205718/BlackJackv1.git`
+
 1で作ったpublicとsrcを、gitcloneで持ってきたpublic と　srcファイルに置き換える。
 
 ## 3,moduleのインストール
