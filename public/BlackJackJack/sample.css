@@ -1,5 +1,10 @@
 @charset "utf-8";
 
+body {
+  background: url(board.png) no-repeat;
+  background-size: cover;
+}
+
 .container {
   background: url(board.png) no-repeat;
   width: 550px;
