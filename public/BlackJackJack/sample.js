@@ -1,4 +1,5 @@
 
+
 let cards = [];
 
 // 自分のカード（配列）
@@ -9,6 +10,20 @@ let comCards = [];
 
 // 勝敗決定フラグ（論理型）
 let isGameOver = false;
+
+const log = ["time","userHaveMoney","latch","rate","fight"];
+
+let rate = 2;
+
+let rateLog = [];
+
+let moneyLog = [];
+
+let latchLog = [];
+
+let fightLog = [];
+
+let timeLog = [];
 
 let resetNum = 0;
 
@@ -66,14 +81,14 @@ document.querySelector("#payout").addEventListener("click", clickPayoutHandler);
 if (resetNum === 0){
   money = param;
 }
-myToken.textContent = "持ち金：" + money + "チップ";
+myToken.textContent = "持ち金：" + money + "ETH";
 latch.focus();
 
 btn.addEventListener("click", () => {
   if(latchFlag == false){
     userNum = Number(latch.value);
     if(userNum>0 && userNum<=money){
-      disLatch.textContent = "掛け金：" + userNum + "チップ";
+      disLatch.textContent = "掛け金：" + userNum + "ETH";
       latch.value = "";
       latchFlag = true;
       updateView();
@@ -94,7 +109,7 @@ function loadHandler() {
   if (resetNum === 0){
     money = param;
   }
-  myToken.textContent = "持ち金：" + money + "チップ";
+  myToken.textContent = "持ち金：" + money + "ETH";
   latch.focus();
   // シャッフル
   shuffle();
@@ -320,7 +335,7 @@ function updateView(showComCards = false) {
     document.querySelector("#myTotal").innerText = getTotal(myCards);
     if (showComCards == true) {
       document.querySelector("#comTotal").innerText = getTotal(comCards);
-    }
+    } 
   } else {
     document.querySelector("#myTotal").innerText = "";
     document.querySelector("#comTotal").innerText = '';
@@ -341,7 +356,6 @@ function getCardPath(card) {
   // カードのパスを返す
   return path;
 }
-
 // 勝敗を判定する関数
 function judge() {
   // 勝敗をあらわす変数
