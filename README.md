@@ -1,7 +1,7 @@
 # ETHブラックジャックの入れ方
-本アプリはReact環境で動作し、metamaskが導入済みである必要があります。
+本アプリはReact環境で動作し、metamaskが導入済みである必要があります。本コードはGanacheで動作しています。
 
-## 1,Reactの環境を用意する。
+## 1,Reactの環境、Ganacheを用意する。
 Node.jsを使用し、React環境を準備する
 
 `create-react-app`
