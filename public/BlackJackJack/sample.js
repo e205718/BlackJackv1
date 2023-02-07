@@ -279,7 +279,7 @@ function updateView(showComCards = false) {
     // 相手のカードを表示する
     for (let i = 0; i < comFields.length; i++) {
       // 相手のカードの枚数がiより大きい場合
-      if (i == 0 || (i < comCards.length && showComCards == true)) {
+      if (i == 0) {
         comFields[i].src = "red.png";
       } else if (i == 1 || (i < comCards.length && showComCards == true)) {
         // 表面の画像を表示する
@@ -308,11 +308,10 @@ function updateView(showComCards = false) {
     document.querySelector("#myTotal").innerText = getTotal(myCards);
     if (showComCards == true) {
       document.querySelector("#comTotal").innerText = getTotal(comCards);
-    } else if(showComCards == false){
-      document.querySelector("#comTotal").innerText = '';
     }
   } else {
     document.querySelector("#myTotal").innerText = "";
+    document.querySelector("#comTotal").innerText = '';
   }
 
 }
@@ -341,39 +340,70 @@ function judge() {
   let comTotal = getTotal(comCards);
 
   let copy = money;
+
   // 勝敗のパターン表に当てはめて勝敗を決める
   if (myTotal > 21 && comTotal <= 21) {
     // 自分の合計が21を超えていれば負け
     result = "loose";
     money -= userNum;
+    rateLog.push(rate);
+    moneyLog.push(copy - userNum);
+    latchLog.push(userNum);
+    fightLog.push(result);
+    timeLog.push(LoadProc());
   }
   else if (myTotal <= 21 && comTotal > 21) {
     // 相手の合計が21を超えていれば勝ち
     result = "win";
-    money += userNum * 2;
+    money += userNum;
+    rateLog.push(rate);
+    moneyLog.push(copy - userNum);
+    latchLog.push(userNum);
+    fightLog.push(result);
+    timeLog.push(LoadProc());
   }
   else if (myTotal > 21 && comTotal > 21) {
     // 自分も相手も21を超えていれば負け
     result = "loose";
     money -= userNum;
+    rateLog.push(rate);
+    moneyLog.push(copy - userNum);
+    latchLog.push(userNum);
+    fightLog.push(result);
+    timeLog.push(LoadProc());
   }
   else {
     // 自分も相手も21を超えていない場合
     if (myTotal > comTotal) {
       // 自分の合計が相手の合計より大きければ勝ち
       result = "win";
-      money += userNum * 2;
+      money += userNum;
+      rateLog.push(rate);
+      moneyLog.push(copy - userNum);
+      latchLog.push(userNum);
+      fightLog.push(result);
+      timeLog.push(LoadProc());
     } else if (myTotal < comTotal) {
       // 自分の合計が相手の合計より小さければ負け
       result = "loose";
       money -= userNum;
+      rateLog.push(rate);
+      moneyLog.push(copy - userNum);
+      latchLog.push(userNum);
+      fightLog.push(result);
+      timeLog.push(LoadProc());
     } else {
       // 自分の合計が相手の合計と同じなら負け
       result = "loose";
       money -= userNum;
+      rateLog.push(rate);
+      moneyLog.push(copy - userNum);
+      latchLog.push(userNum);
+      fightLog.push(result);
+      timeLog.push(LoadProc());
     }
   }
-  myToken.textContent = "持ち金：" + money + "チップ";
+  myToken.textContent = "持ち金：" + money + "ETH";
   if(copy < money){
     disLatch.textContent = userNum * 2 +"チップ獲得しました";
   } else {
@@ -401,6 +431,30 @@ function showResult(result) {
   }
   // メッセージを表示する
   alert(message);
+
+  let timeLast = timeLog.slice(-1)[0] + "\n";
+  let moneyLast = moneyLog.slice(-1)[0] + "\n";
+  let latchLast = latchLog.slice(-1)[0] + "\n";
+  let rateLast = rateLog.slice(-1)[0] + "\n";
+  let fightLast = fightLog.slice(-1)[0] + "\n";
+  viewTime.innerText += timeLast;
+  viewUserHaveMoney.innerText += moneyLast;
+  viewLatch.innerText += latchLast;
+  viewRate.innerText += rateLast;
+  viewFight.innerText += fightLast;
+}
+
+function LoadProc() {
+  var now = new Date();
+
+  var Year = now.getFullYear();
+  var Month = now.getMonth()+1;
+  var nowDate = now.getDate();
+  var Hour = now.getHours();
+  var Min = now.getMinutes();
+  var Sec = now.getSeconds();
+
+  return Year + "/" + Month + "/" + nowDate + "/" + Hour + ":" + Min + ":" + Sec;
 }
 
 /***********************************************
