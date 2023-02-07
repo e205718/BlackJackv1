@@ -30,6 +30,18 @@ const latch = document.getElementById("guessField");
 const disLatch = document.getElementById("decLatch");
 const test = document.getElementById("test");
 const payout = document.getElementById("payout");
+const output = document.getElementById("output");
+const viewTime = document.getElementById("time");
+const viewUserHaveMoney = document.getElementById("userHaveMoney");
+const viewLatch = document.getElementById("latch");
+const viewRate = document.getElementById("rate");
+const viewFight = document.getElementById("fight");
+
+viewTime.innerText += "\n";
+viewUserHaveMoney.innerText += "\n";
+viewLatch.innerText += "\n";
+viewRate.innerText += "\n";
+viewFight.innerText += "\n";
 
 /***********************************************
   イベントハンドラの割り当て
