@@ -5,10 +5,11 @@ body {
   background-size: cover;
 }
 
-.container {
+#table {
   background: url(board.png) no-repeat;
   width: 550px;
-  margin: 40px auto;
+  margin-top: 40px;
+  margin-left: 100px;
   padding: 0 10px;
 }
 
@@ -40,4 +41,36 @@ body {
 #comTotal {
   background-color: #d53633;
   top: 10px;
+}
+
+#dummy {
+  visibility:hidden;
+}
+
+.main {
+  display:flex;
+  column-gap: 0%;
+}
+
+.container {
+  display:flex;
+}
+
+#result {
+  margin-top: 0px;
+}
+
+.vod {
+  margin: 50px;
+  height: 0px;
+}
+
+#topResult {
+  width: 500px;
+  border: 1px solid #333;
+  text-align: center;
+}
+
+.sumResult {
+  text-align: center;
 }
