@@ -16,5 +16,8 @@ git cloneでソースコードを持ってくる。
 `npm install react-router-dom`
 `npm install web3`
 
-## 4,起動
+## 4,WinPayout.js LosePayout.js　の書き換え
+masterAccountを書き換える（運営元のアカウント）
+
+## 5,起動
 `npm start`
